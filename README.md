@@ -6,6 +6,8 @@
 
 ## 从哪里读代码
 
+[代码目录逐文件说明](code/README.md)列出了运行入口、实验模块、联调脚本及每个测试文件的职责。
+
 1. [Terminus 2 适配器](code/ask_advisor_runner/terminus_agent.py)调用[反馈标记逻辑](code/ask_advisor_runner/terminus_feedback.py)，标记一批终端命令产生的反馈。
 2. [评分请求构造](code/ask_advisor_runner/chat_interceptor.py)中的 `_system_one_request` 包含完整英文判断指令、YES/NO 判据和输入字段。输入包括当前反馈步号，以及默认最多 24,000 字符的最近对话。
 3. [System One 判断与 Advisor 调用](code/ask_advisor_runner/dsh_systemone_bridge.py)读取 YES/NO 概率及诊断。从第 3 个不同反馈起允许评分；当 p_yes ≥ 0.70 且诊断、去重和额度检查通过时，才允许请求建议，每任务最多 3 次。
