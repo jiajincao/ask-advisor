@@ -2,7 +2,7 @@
 
 本项目研究终端 Agent 何时应向外部 Advisor 求助，以及建议是否能改善任务完成情况。RTX 3090 运行 Harbor 和 Terminus 2，A40 提供执行模型、System One 评分和 Advisor 接入服务。
 
-[实验方案](docs/experiment-plan.md)包含研究问题、A/C 对照、固定任务子集、评价指标及 pilot 通过标准。
+[实验方案](docs/experiment-plan.md)包含研究问题、A/C 对照、评价指标及 pilot 通过标准。
 
 首次接手时，请先读[双机实验交接与操作顺序](docs/handoff.md)，再按下列入口查实现。
 

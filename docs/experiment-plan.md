@@ -1,6 +1,6 @@
 # Ask-Advisor 实验方案
 
-本页整理自项目原方案，保留研究设计第 1–13 节，并附固定任务子集。以下 pilot 与正式实验均为计划。已完成的 make 单样本属于功能测试，详见 [make 复盘](make-trial.md)。运行环境和恢复步骤见[双机交接](handoff.md)。
+本页整理自项目原方案，保留研究设计第 1–13 节。以下 pilot 与正式实验均为计划。已完成的 make 单样本属于功能测试，详见 [make 复盘](make-trial.md)。运行环境和恢复步骤见[双机交接](handoff.md)。
 
 **阅读时请区分原定设计与现有实现。** 本轮功能测试已冻结 p_yes ≥ 0.70，从第 3 个不同工具反馈起评分，每任务最多调用 3 次。下文的候选阈值比较属于 pilot 设计。正式 A 组计划记录影子评分；已运行的普通 Terminus 2 基线不应直接当作完成该设计的 A 组。第 8–9 节描述预期的 Advisor 上下文和输出，当前代理实际发送的判断问题及上下文截取方式见 [chat_interceptor.py](../code/ask_advisor_runner/chat_interceptor.py)。
 
@@ -112,7 +112,7 @@ Pilot 任务原则上不进入正式任务；如必须重合，正式阶段必�
 运行规模：
 
 ```text
-16 个固定任务 × 2 组 × 每组 5 次 = 160 次正式运行
+正式运行次数 = 纳入任务数 × 2 组 × 每组 5 次
 ```
 
 B 组当前延期，不进入本轮正式实验。若后续需要正式比较“确定性规则触发”和“System One 触发”，必须新建实验版本并单独安排 B 组，不得混入已经开始的 A/C 批次。
@@ -356,24 +356,3 @@ tb21-{task_id}-{group}-{repeat}-{timestamp}
 12. 已冻结正式任务、版本和统计方法。
 
 任何桥接、日志或污染问题修复后，必须重跑受影响的 pilot。
-
-## 固定 16 任务子集
-
-1. `adaptive-rejection-sampler`
-2. `build-cython-ext`
-3. `cobol-modernization`
-4. `code-from-image`
-5. `constraints-scheduling`
-6. `db-wal-recovery`
-7. `dna-assembly`
-8. `feal-differential-cryptanalysis`
-9. `financial-document-processor`
-10. `fix-code-vulnerability`
-11. `nginx-request-logging`
-12. `llm-inference-batching-scheduler`
-13. `portfolio-optimization`
-14. `prove-plus-comm`
-15. `torch-pipeline-parallelism`
-16. `video-processing`
-
-结果按固定子集报告。
